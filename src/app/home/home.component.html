@@ -1,0 +1,24 @@
+
+<div class="container">
+        <marquee behavior="scroll" direction="left" onmouseover="stop()" onmouseout="start()" loop="infinite">
+            <div class="row">
+                <ng-container *ngFor="let row of nesto">
+                        <div class="col-1">
+                            <img [src]="row.logos.dark" width="40px%" class="img-fluid" alt="x">
+                        </div>
+                </ng-container>
+            </div>
+        </marquee>
+        <div class="container">
+            <div class="row">
+                <div class="col-3" style="background-color: var(--terc);  ">
+                        <h1>a</h1>
+                </div>
+                <div class="col-9" style="background-color: var(--lp); height: 800px;">
+                    <h1>a</h1>
+                </div>
+            </div>
+        </div>
+       
+
+</div>

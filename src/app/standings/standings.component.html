@@ -1,0 +1,56 @@
+<div class="container">
+  
+
+    <div class="row" style="margin-top: 20px;">
+        <div class="col-9 col-sm-9" style="display: flex; align-items: center">
+            <h1 style="text-align: center;"> {{data.name}}  {{data.seasonDisplay}}</h1>
+        </div>
+        <div class="col-3 col-sm-3">
+              <input type="number" [(ngModel)]="id" (click)="renderStanding(id)">
+              <h1> {{id.value}}</h1>
+              <label for="cars">Choose a league:</label>
+                    <select id="cars" name="cars">
+                    <option value="arg1">Arg</option>
+                    <option value="ita.1">Ita</option>
+                    <option value="ger.1">Ger</option>
+                    <option value="fra.1">Fra</option>
+                    </select>
+                    
+        </div>
+    </div>
+    
+
+    <div class="row"  *ngFor="let variable of data.standings; let i = index" style="border-bottom: 1px solid #000; border-radius: 20px">
+        
+        <div class="col-1 col-sm-1" style="background-color: var(--quad);">
+            
+            <img [src]="variable.team.logos[0].href" width="40px" height="40px" alt="x" style="margin:5px 17px">
+        </div>
+        <div class="col-6 col-sm-6" style="background-color: var(--terc); color: #fff;">
+            <h1>{{variable.team.displayName}}</h1>
+        </div>
+        <div class="col-5 col-sm-5" style="background-color: var(--secondary);">
+         
+            <!-- <div *ngFor="let proba of variable.stats ;let i = index">
+                {{variable.stats[i].name}} - {{variable.stats[i].value}}
+                
+            </div> -->
+            <!--PROBA-->
+           <div class="row" >
+            <div class="col-3 col-sm-3">
+                {{variable.stats[0].name}} - {{variable.stats[0].value}}
+            </div>
+            <div class="col-3 col-sm-3">
+                {{variable.stats[1].name}} - {{variable.stats[1].value}}
+            </div>
+            <div class="col-3 col-sm-3">
+                {{variable.stats[4].name}} - {{variable.stats[4].value}}
+            </div>
+            <div class="col-3 col-sm-3">
+                {{variable.stats[5].name}} - {{variable.stats[5].value}}
+            </div>
+           </div>
+            
+        </div>
+    </div>
+</div>

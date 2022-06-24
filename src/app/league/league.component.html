@@ -1,0 +1,15 @@
+
+<div class="container" style="margin-top: 10px;">
+    <div class="row" *ngFor=" let league of leagues" style="border-bottom: 1px solid #FFF;">
+        <div class="col-1" style="background: var(--quad);">
+          <img [src]="league.logos.light" alt="" width="70px" height="70px">
+        </div>
+        <div class="col-10" style="background: var(--terc);">
+            <h1>{{league.name}}</h1>
+            
+        </div>
+        <div class="col-1" style="background: var(--terc);">
+            <button mat-raised-button   style="margin-top: 20px">Info</button>
+        </div>
+    </div>
+</div>
