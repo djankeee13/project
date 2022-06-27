@@ -18,6 +18,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { FooterComponent } from './footer/footer.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSelectModule} from '@angular/material/select';
 
 
 
@@ -43,7 +44,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatIconModule,
     MatFormFieldModule,
     MatButtonModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

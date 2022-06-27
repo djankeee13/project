@@ -1,24 +1,51 @@
 <div class="container">
   
-
-    <div class="row" style="margin-top: 20px;">
-        <div class="col-9 col-sm-9" style="display: flex; align-items: center">
-            <h1 style="text-align: center;"> {{data.name}}  {{data.seasonDisplay}}</h1>
+    <div class="row" style="margin-top: 20px; background: var(--secondary);">
+        <div class="col-7 " style="display: flex; align-items: center" style="text-align: center; margin-top:25px; font-weight: 800;">
+            <h1 > {{data.name}}  </h1>
+            <h1>{{data.seasonDisplay}}</h1>
         </div>
-        <div class="col-3 col-sm-3">
-              <input type="number" [(ngModel)]="id" (click)="renderStanding(id)">
+
+        <div class="col-5  inputf">
+
+          <mat-form-field appearance="fill"  >
+          <mat-label>Pick league: </mat-label>
+          <mat-select [(value)]="selectedLeague">
+            <mat-option></mat-option>
+            <mat-option [value]="option.value" *ngFor="let option of leagues" (click)="renderStanding(selectedLeague,id)">{{ option.viewValue }}</mat-option>
+           </mat-select>
+           </mat-form-field>
+          
+          <input type="number" [(ngModel)]="id" (click)="renderStanding(selectedLeague,id)" >
               <h1> {{id.value}}</h1>
-              <label for="cars">Choose a league:</label>
-                    <select id="cars" name="cars">
-                    <option value="arg1">Arg</option>
-                    <option value="ita.1">Ita</option>
-                    <option value="ger.1">Ger</option>
-                    <option value="fra.1">Fra</option>
-                    </select>
                     
         </div>
     </div>
     
+    <div class="row" style="background: lightgrey; height: 30px;">
+        <div class="col-1">
+            <h1 style="text-align: center;"> #</h1>
+        </div>
+        <div class="col-6">
+            <h1>TEAM</h1>
+        </div>
+        <div class="col-5" style="text-align: center">
+            <div class="row">
+                <div class="col-3">
+                    <h3> WINNS</h3>
+                </div>
+                <div class="col-3">
+                    <h3> LOSSES</h3>
+                </div>
+                <div class="col-3">
+                    <h3> POINFOR</h3>
+                </div>
+                <div class="col-3">
+                    <h3> POINAGAIN</h3>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="row"  *ngFor="let variable of data.standings; let i = index" style="border-bottom: 1px solid #000; border-radius: 20px">
         
@@ -31,23 +58,20 @@
         </div>
         <div class="col-5 col-sm-5" style="background-color: var(--secondary);">
          
-            <!-- <div *ngFor="let proba of variable.stats ;let i = index">
-                {{variable.stats[i].name}} - {{variable.stats[i].value}}
-                
-            </div> -->
+           
             <!--PROBA-->
-           <div class="row" >
-            <div class="col-3 col-sm-3">
-                {{variable.stats[0].name}} - {{variable.stats[0].value}}
+           <div class="row" style="text-align: center;" >
+            <div class="col-3 col-sm-3 mar" >
+                 {{variable.stats[0].value}}
             </div>
-            <div class="col-3 col-sm-3">
-                {{variable.stats[1].name}} - {{variable.stats[1].value}}
+            <div class="col-3 col-sm-3 mar">
+                {{variable.stats[1].value}}
             </div>
-            <div class="col-3 col-sm-3">
-                {{variable.stats[4].name}} - {{variable.stats[4].value}}
+            <div class="col-3 col-sm-3 mar">
+                 {{variable.stats[4].value}}
             </div>
-            <div class="col-3 col-sm-3">
-                {{variable.stats[5].name}} - {{variable.stats[5].value}}
+            <div class="col-3 col-sm-3 mar">
+                 {{variable.stats[5].value}}
             </div>
            </div>
             

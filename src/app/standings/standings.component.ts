@@ -11,27 +11,32 @@ export class StandingsComponent implements OnInit {
     data!: any;
     stats!: any;
     id: any = '2020';
-    year: any;
+  
+    leagues: any[] = [
+      {value: 'eng.1', viewValue: 'England'},
+      {value: 'fra.1', viewValue: 'France'},
+      {value: 'ger.1', viewValue: 'Germany'},
+      {value: 'ita.1', viewValue: 'Italy'},
+      {value: 'esp.1', viewValue: 'Spain'},
+    ];
+    selectedLeague = this.leagues[0].value;
+
   constructor( private api: ApiService) { }
 
   ngOnInit(): void {
-    this.renderStanding(event)
+    this.renderStanding('eng.1','2020')
   }
   
-  renderStanding(event : any){
-      if(!event){
-        event = 2020;
-      }
-    this.api.getSeason(event )
+  renderStanding(pick: any,event : any){
+     
+    this.api.getSeason(pick, event )
     .subscribe(res => {
       this.data = res.data;
       this.stats = res.data.standings; 
-     /*  console.log(this.data) */
+     
      console.log(this.stats)  /* ???? */
     })
-   /*  for (let i=0; i<20; i++){
-      console.log();
-    } */
+  
   }
 
 }

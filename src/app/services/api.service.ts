@@ -13,8 +13,8 @@ export class ApiService {
  /*   getSeason(){
     return this.http.get<any>('https://api-football-standings.azharimm.site/leagues/eng.1/standings?season=2020&sort=asc')
   }  */
-  getSeason(id: any){
-    return this.http.get<any>(`https://api-football-standings.azharimm.site/leagues/eng.1/standings?season=${id}&sort=asc`)
+  getSeason(pick: any, id: any){
+    return this.http.get<any>(`https://api-football-standings.azharimm.site/leagues/${pick}/standings?season=${id}&sort=asc`)
   } 
  
   getLeague(){
